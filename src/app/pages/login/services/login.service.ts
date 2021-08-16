@@ -6,12 +6,15 @@ import { map } from 'rxjs/operators'
 import { Observable } from 'rxjs';
 import { IResponseSignUp, ISignUp } from '../sign-up/interfaces/sign-up.interface';
 
+const {
+  url,
+  v1
+} = environment;
+ 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-
-  url = environment.api;
 
 
   constructor(
@@ -19,12 +22,12 @@ export class LoginService {
   ) { }
 
   login( user: ILogin ): Observable<IResponseLogin> {
-    return this.http.post<IResponseLogin>(`${this.url}/login`, user )
+    return this.http.post<IResponseLogin>(`${url}/${v1}/login`, user )
       .pipe( map( data => data ) );
   }
 
   signup(user: ISignUp): Observable<IResponseSignUp> {
-    return this.http.post<IResponseSignUp>(`${this.url}/login/create`, user)
+    return this.http.post<IResponseSignUp>(`${url}/${v1}/login/create`, user)
       .pipe(map(data => data));
   }
 }
