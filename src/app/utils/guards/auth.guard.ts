@@ -12,9 +12,8 @@ export class AuthGuard implements CanActivate {
     private route: Router
   ) {}
 
-  canActivate(): Promise<boolean | UrlTree> | boolean | UrlTree {
-    let isValidate;
-    this.loginService.validateToken().subscribe(validate => isValidate = validate);
+  canActivate(): boolean {
+    const { isValidate } = this.loginService.isValidate()
     if (isValidate) {
       this.route.navigateByUrl('/dashboard');
       return true;

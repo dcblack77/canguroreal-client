@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import Swal from "sweetalert2";
 import { LoginService } from '../services/login.service';
 import { Login } from './dto/login';
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
   rexEmail = /^[a-zA-Z0-9.!#$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   rexNumber = /[0-9]{9}/;
   constructor(
-    private loginService: LoginService
+    private loginService: LoginService,
+    private route: Router
   ) {
     this.user = new Login();
    }
@@ -45,8 +47,6 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.user)
       .subscribe(
         (response: IResponseLogin) => {
-
-          window.sessionStorage.setItem("access_token", response.access_token);
 
           Swal.fire({
             allowOutsideClick: false,
