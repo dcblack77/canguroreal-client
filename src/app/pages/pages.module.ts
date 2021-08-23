@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PagesRoutingModule } from './pages-routing.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { LoginModule } from './login/login.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -10,6 +11,7 @@ import { LoginModule } from './login/login.module';
   declarations: [],
   imports: [
     CommonModule,
+    HttpClientModule,
     PagesRoutingModule,
     DashboardModule,
     LoginModule

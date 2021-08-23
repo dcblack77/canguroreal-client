@@ -1,1 +1,28 @@
-<p>dashboard works!</p>
+
+<div class="row mh-100vh">
+    <div></div>
+
+    <div class="container">
+        <div class="row row-cols-md-2 g-2">
+            <div class="col" *ngFor="let reserva of reservas; let i = index">
+              <div class="card">
+                <div class="card-header">Titulo (O en su defecto nombre del creador de la tarjeta)</div>
+                <div class="card-body">
+                  <h5 class="card-title">Reserva para: {{ reserva.kids }} niños</h5>
+                  <p class="card-text">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas delectus ipsam iste quibusdam quos dignissimos ex. Repellendus natus beatae omnis, ipsa veritatis qui deleniti nostrum incidunt est ipsum dolorem consequuntur?
+                  </p>
+                </div>
+                <div class="card-footer"> 
+                    <small class="text-muted"> {{ reserva.create | date }} </small>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+
+
+
+</div>
+
+
